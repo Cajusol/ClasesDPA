@@ -18,11 +18,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
 
 @Composable
-@Preview(showBackground = true)
-fun LoginScreen(){
+fun LoginScreen(navController: NavController){
 
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -58,7 +58,11 @@ fun LoginScreen(){
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
-            onClick = { /* Acción al hacer clic en el botón */ },
+            onClick = {
+                if(email.isNotBlank() && password.isNotBlank()) {
+                    navController.navigate("home")
+                }
+                },
             modifier = Modifier.padding(vertical = 8.dp).fillMaxWidth()
 
         ) {

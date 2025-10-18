@@ -16,9 +16,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
 @Composable
-fun RegisterScreen(){
+fun RegisterScreen(navController: NavController){
 
     var name by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
@@ -67,7 +68,16 @@ fun RegisterScreen(){
            )
 
         Button(
-            onClick = { /*TODO*/ },
+            onClick = {
+
+                if(name.isNotBlank()
+                        && password.isNotBlank()
+                        && password==confirmPassword ){
+                        navController.navigate(route = "login")
+
+                }
+
+            },
             modifier = Modifier.padding(vertical = 16.dp).fillMaxWidth()
         ) {
             Text("Registrarse")

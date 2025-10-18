@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.mcajusol.clasesdpa.presentation.auth.LoginScreen
 import com.mcajusol.clasesdpa.presentation.auth.RegisterScreen
+import com.mcajusol.clasesdpa.presentation.navigation.AppNavGraph
 import com.mcajusol.clasesdpa.ui.theme.ClasesDPATheme
 
 class MainActivity : ComponentActivity() {
@@ -22,8 +23,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             ClasesDPATheme {
                 // A surface container using the 'background' color from the theme
-                //LoginScreen()
-                RegisterScreen()
+                AppNavGraph()
 
             }
         }
